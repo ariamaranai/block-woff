@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "w0ff",
+  "version": "0",
+  "description": "Block webfonts excluding iconfonts",
+  "icons": {
+    "128": "on.png"
+  },
+  "permissions": [
+    "declarativeNetRequest"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "0",
+        "path": "0.json",
+        "enabled": true
+      }
+    ]
+  },
+  "background": {
+    "service_worker": "bg.js"
+  },
+  "action": {}
+}

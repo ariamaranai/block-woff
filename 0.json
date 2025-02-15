@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "resourceTypes": ["font"],
+      "requestMethods": ["get"],
+      "excludedInitiatorDomains": [
+        "fonts.google.com"
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "resourceTypes": ["stylesheet"],
+      "requestMethods": ["get"],
+      "domainType": "thirdParty",
+      "urlFilter": "^https://fonts.googleapis.com"
+    }
+  },
+  {
+    "id": 3,
+    "action": {
+      "type": "allow"
+    },
+    "condition": {
+      "resourceTypes": ["stylesheet","font"],
+      "requestMethods": ["get"],
+      "regexFilter": "(awesome|material|icon)"
+    }
+  }
+]
