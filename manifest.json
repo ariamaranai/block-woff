@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "w0ff",
+  "name": "block-woff",
   "version": "0",
   "description": "Block webfonts excluding iconfonts",
   "icons": {
