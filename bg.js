@@ -1,16 +1,15 @@
-chrome.declarativeNetRequest.getEnabledRulesets(rulesetIds => {
-  let isEnabled = rulesetIds.length;
-  chrome.action.onClicked.addListener(() =>
+chrome.action.onClicked.addListener(() =>
+  chrome.declarativeNetRequest.getEnabledRulesets(rulesetIds =>
     chrome.declarativeNetRequest.updateEnabledRulesets(
-      (isEnabled = !isEnabled)
+      rulesetIds.length
         ? (
-          chrome.action.setIcon({ path: "on.png" }),
-          { enableRulesetIds: ["0"] }
-        )
-        : (
           chrome.action.setIcon({ path: "off.png" }),
           { disableRulesetIds: ["0"] }
         )
+        : (
+          chrome.action.setIcon({ path: "on.png" }),
+          { enableRulesetIds: ["0"] }
+        )
     )
-  );
-});
+  )
+);
