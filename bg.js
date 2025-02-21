@@ -1,8 +1,8 @@
-{
-  let isDisable = 0;
+chrome.declarativeNetRequest.getEnabledRulesets(rulesetIds => {
+  let isEnabled = rulesetIds.length;
   chrome.action.onClicked.addListener(() =>
     chrome.declarativeNetRequest.updateEnabledRulesets(
-      (isDisable = !isDisable)
+      (isEnabled = !isEnabled)
         ? (
           chrome.action.setIcon({ path: "on.png" }),
           { enableRulesetIds: ["0"] }
@@ -13,4 +13,4 @@
         )
     )
   );
-}
+});
