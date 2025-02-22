@@ -1,16 +1,18 @@
-chrome.action.onClicked.addListener(a =>
+chrome.declarativeNetRequest.getEnabledRulesets(rulesetIds =>
+  chrome.action.setIcon({ path: rulesetIds.length ? "on.png" : "off.png" })
+);
+chrome.action.onClicked.addListener(() =>
   chrome.declarativeNetRequest.getEnabledRulesets(rulesetIds => {
     chrome.declarativeNetRequest.updateEnabledRulesets(
       rulesetIds.length
         ? (
-          chrome.action.setIcon({ path: a ? "off.png" : "on.png" }),
-          { [a ? "disableRulesetIds" : "enableRulesetIds"] : ["0"] }
+          chrome.action.setIcon({ path: "off.png" }),
+          { disableRulesetIds : ["0"] }
         )
         : (
-          chrome.action.setIcon({ path: a ? "on.png" : "off.png" }),
-          { [a ? "enableRulesetIds": "disableRulesetIds"] : ["0"] }
+          chrome.action.setIcon({ path: "on.png" }),
+          { enableRulesetIds : ["0"] }
         )
     )
   })
 );
-chrome.action.onClicked.dispatch();
