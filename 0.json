@@ -8,7 +8,7 @@
     "condition": {
       "resourceTypes": ["stylesheet","font"],
       "requestMethods": ["get"],
-      "regexFilter": "(awesome|material|icon|/fa-|player)"
+      "regexFilter": "(awesome|material|ico|/fa-|player)"
     }
   },
   {
