@@ -1,19 +1,19 @@
 [
   {
     "id": 1,
-    "priority": 2147483647,
+    "priority": 2147409999,
     "action": {
       "type": "allow"
     },
     "condition": {
       "resourceTypes": ["stylesheet","font"],
       "requestMethods": ["get"],
-      "regexFilter": "(awesome|material|ico|/fa-|player)"
+      "regexFilter": "(awesome|material|ico|/fa-|player|t\\?kit=)"
     }
   },
   {
     "id": 2,
-    "priority": 2147483646,
+    "priority": 2147409998,
     "action": {
       "type": "block"
     },
@@ -27,7 +27,7 @@
   },
   {
     "id": 3,
-    "priority": 2147483645,
+    "priority": 2147409997,
     "action": {
       "type": "block"
     },
