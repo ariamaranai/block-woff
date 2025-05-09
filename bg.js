@@ -7,9 +7,11 @@ chrome.action.onClicked.addListener(async () => {
     {[len ? "disableRulesetIds" : "enableRulesetIds"] : ["0"] }
   );
 });
-chrome.runtime.onStartup.addListener(async () =>
-  chrome.action.setIcon({
+{
+  let f = async () => chrome.action.setIcon({
     path: (await chrome.declarativeNetRequest.getEnabledRulesets()).length ? "on.png" : "off.png"
-  })
-);
-chrome.runtime.onStartup.dispatch();
+  });
+  chrome.runtime.onSuspend.addListener(() => chrome.runtime.onStartup.removeListener(f));
+  chrome.runtime.onStartup.addListener(f);
+  f();
+}
