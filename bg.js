@@ -8,10 +8,11 @@ chrome.action.onClicked.addListener(async () => {
   );
 });
 {
-  let f = async () => chrome.action.setIcon({
-    path: (await chrome.declarativeNetRequest.getEnabledRulesets()).length ? "on.png" : "off.png"
-  });
-  chrome.runtime.onSuspend.addListener(() => chrome.runtime.onStartup.removeListener(f));
-  chrome.runtime.onStartup.addListener(f);
-  f();
+  let hasStarted;
+  chrome.runtime.onStartup.addListener(async () =>
+    hasStarted ??= chrome.action.setIcon({
+      path: (await chrome.declarativeNetRequest.getEnabledRulesets()).length ? "on.png" : "off.png"
+    })
+  );
 }
+chrome.runtime.onStartup.dispatch();
