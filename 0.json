@@ -8,7 +8,7 @@
     "condition": {
       "resourceTypes": ["stylesheet","font"],
       "requestMethods": ["get"],
-      "regexFilter": "^https://[^/]+(/.*?(awesome|/fa-|symbol|material|ico|player|t\\?kit=))"
+      "regexFilter": "^https://[^/]+(/.*?(?:awesome|/fa-|symbol|material|ico|player|t\\?kit=))"
     }
   },
   {
