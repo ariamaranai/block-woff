@@ -35,7 +35,7 @@
       "resourceTypes": ["stylesheet"],
       "requestMethods": ["get"],
       "domainType": "thirdParty",
-      "regexFilter": "^https://fonts\\.googleapis\\.com/css2\\?family=[^M]"
+      "regexFilter": "^https://fonts\\.googleapis\\.com/css.?\\?family=[^M]"
     }
   }
 ]
