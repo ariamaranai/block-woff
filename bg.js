@@ -3,14 +3,14 @@ chrome.action.onClicked.addListener(async () => {
   chrome.action.setIcon({
     path: len ? "off.png": "on.png"
   });
-  chrome.declarativeNetRequest.updateEnabledRulesets(
-    {[len ? "disableRulesetIds" : "enableRulesetIds"] : ["0"] }
-  );
+  chrome.declarativeNetRequest.updateEnabledRulesets({
+    [len ? "disableRulesetIds" : "enableRulesetIds"] : ["0"]
+  });
 });
 {
-  let hasStarted;
+  let isCalled;
   chrome.runtime.onStartup.addListener(async () =>
-    hasStarted ??= chrome.action.setIcon({
+    isCalled ??= chrome.action.setIcon({
       path: (await chrome.declarativeNetRequest.getEnabledRulesets()).length ? "on.png" : "off.png"
     })
   );
