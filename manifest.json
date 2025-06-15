@@ -1,13 +1,14 @@
 {
   "manifest_version": 3,
-  "name": "block-woff",
+  "name": "block-font",
   "version": "0",
   "description": "Block webfonts excluding iconfonts",
   "icons": {
     "128": "on.png"
   },
   "permissions": [
-    "declarativeNetRequest"
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback"
   ],
   "declarative_net_request": {
     "rule_resources": [{

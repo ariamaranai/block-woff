@@ -7,12 +7,30 @@ chrome.action.onClicked.addListener(async () => {
     [len ? "disableRulesetIds" : "enableRulesetIds"] : ["0"]
   });
 });
+chrome.declarativeNetRequest.onRuleMatchedDebug.addListener(info =>
+  info.rule.ruleId > 1 &&
+  chrome.declarativeNetRequest.setExtensionActionOptions({
+    displayActionCountAsBadgeText: !0,
+    tabUpdate: {
+      increment: 1,
+      tabId: info.request.tabId
+    }
+  })
+)
 {
   let isCalled;
   chrome.runtime.onStartup.addListener(async () =>
-    isCalled ??= chrome.action.setIcon({
-      path: (await chrome.declarativeNetRequest.getEnabledRulesets()).length ? "on.png" : "off.png"
-    })
+    isCalled ??= (
+      chrome.action.setIcon({
+        path: (await chrome.declarativeNetRequest.getEnabledRulesets()).length ? "on.png" : "off.png"
+      }),
+      chrome.action.setBadgeBackgroundColor({
+        color: "#500"
+      }),
+      chrome.action.setBadgeTextColor({
+        color: "#fff"
+      })
+    )
   );
 }
 chrome.runtime.onStartup.dispatch();
